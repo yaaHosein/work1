@@ -25,7 +25,7 @@ const Navbar = () => {
                   الرئيسة
                 </Link>
                 <Link
-                  href="/jobs"
+                  to="/jobs"
                   className="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                 >
                   المواد
