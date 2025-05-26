@@ -1,4 +1,4 @@
-const Hero = ({ title = "إنضم إلينا", subtitle = "إحصل على ما تبحث عنه" }) => {
+const Hero = ({ title = "إنضم إلينا", subtitle = "واحصل على ما تبحث عنه " }) => {
   return (
     <section className="bg-indigo-700 py-20 mb-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
