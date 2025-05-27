@@ -1,9 +1,9 @@
-import { FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+// import { FaArrowLeft } from "react-icons/fa";
+// import { Link } from "react-router-dom";
 const JobPage = () => {
   return (
     <>
-      <section>
+      {/* <section>
         <div className="container m-auto py-6 px-6">
           <Link
             to="/jobs"
@@ -12,8 +12,8 @@ const JobPage = () => {
             <FaArrowLeft className="mr-2"/> Back to Job Listings
           </Link>
         </div>
-      </section>
-
+      </section> */}
+{/* 
       <section className="bg-indigo-50">
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
@@ -91,7 +91,7 @@ const JobPage = () => {
             </aside>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
