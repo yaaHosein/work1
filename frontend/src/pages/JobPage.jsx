@@ -6,7 +6,7 @@ import Spinner from "../components/Spinner";
 
 const JobPage = () => {
   const { id } = useParams();
-  // const [job, setJob] = useState(null);
+  const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
