@@ -1,8 +1,32 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Spinner from "../components/Spinner";
 // import { FaArrowLeft } from "react-icons/fa";
 // import { Link } from "react-router-dom";
+
 const JobPage = () => {
-  return (
-    <>
+  const { id } = useParams();
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      try {
+        const res = await fetch(`/api/jobs/${id}`);
+        const data = await res.json();
+        setJob(data);
+      } catch (error) {
+        console.log("Error fetching data", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJob();
+  }, []);  
+  return loading?<Spinner/>: ( 
+        <>
+    <h1>{job.title}</h1>
+
       {/* <section>
         <div className="container m-auto py-6 px-6">
           <Link
@@ -13,7 +37,7 @@ const JobPage = () => {
           </Link>
         </div>
       </section> */}
-{/* 
+      {/* 
       <section className="bg-indigo-50">
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
