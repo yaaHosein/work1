@@ -1,4 +1,4 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "../components/Spinner";
 // import { FaArrowLeft } from "react-icons/fa";
@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 const JobPage = () => {
   const { id } = useParams();
   // const [job, setJob] = useState(null);
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   // useEffect(() => {
   //   const fetchJob = async () => {
@@ -23,9 +23,15 @@ const JobPage = () => {
   //   };
   //   fetchJob();
   // }, []);  
-  return loading?<Spinner/>: ( 
-        <>
+  return loading?<Spinner/>: 
+        
     <h1>{job.title}</h1>
+}
+    const jobLoader= async ({params})=>{
+      const res= await fetch (`/api/jobs/${params.id}`)
+      const data=await res.json()
+      return data
+    }
 
       {/* <section>
         <div className="container m-auto py-6 px-6">
@@ -116,8 +122,8 @@ const JobPage = () => {
           </div>
         </div>
       </section> */}
-    </>
-  );
-};
+    
+  
 
-export default JobPage;
+
+export {JobPage as default,jobLoader} ;
