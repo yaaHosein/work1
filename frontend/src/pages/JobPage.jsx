@@ -20,7 +20,8 @@ const JobPage = () => {
   //       console.log("Error fetching data", error);
   //     } finally {
   //       setLoading(false);
-  //     }
+  //     }  
+
   //   };
   //   fetchJob();
   // }, []);
