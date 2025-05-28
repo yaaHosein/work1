@@ -1,12 +1,22 @@
 // import { useState, useEffect } from "react";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 // import Spinner from "../components/Spinner";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const JobPage = () => {
+const JobPage = ({ deleteJob }) => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const job = useLoaderData();
+
+  const onDeleteClick = ( jobId ) => {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this listing?"
+    );
+    if (!confirm) return;
+    deleteJob(jobId);
+    navigate("/jobs");
+  };
   // const [job, setJob] = useState(null);
   // const [loading, setLoading] = useState(true);
 
@@ -20,7 +30,7 @@ const JobPage = () => {
   //       console.log("Error fetching data", error);
   //     } finally {
   //       setLoading(false);
-  //     }  
+  //     }
 
   //   };
   //   fetchJob();
@@ -37,7 +47,7 @@ const JobPage = () => {
           </Link>
         </div>
       </section>
-      
+
       <section className="bg-indigo-50">
         <div className="container m-auto py-10 px-6">
           <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
@@ -98,7 +108,10 @@ const JobPage = () => {
                 >
                   Edit Job
                 </Link>
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                <button
+                  onClick={() => onDeleteClick(job.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                >
                   Delete Job
                 </button>
               </div>
