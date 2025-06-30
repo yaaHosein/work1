@@ -1,16 +1,13 @@
 import express from "express";
+import { JobController } from "./controllers/job-controller.js";
 
 var app = express();
+app.use(express.json());
 
-console.log("Foo");
+const jobsRouter = express.Router();
+new JobController(jobsRouter);
 
-app.get("/", (req, res) => {
-  res.send("Foo");
-});
-
-app.get("/shirt", (req, res) => {
-  res.send("foo");
-});
+app.use(`/api${JobController.path}`, jobsRouter);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
