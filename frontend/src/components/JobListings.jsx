@@ -1,30 +1,41 @@
 import { useState, useEffect } from "react";
 import JobListing from "./JobListing";
 import Spinner from "./Spinner";
+import axios from "axios";
 
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
 const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      const apiUrl=isHome
-      ?"/api/jobs?_limit=3"
-      :"/api/jobs"
-      try {
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-        setJobs(data);
-      } catch (error) {
-        console.log("Error fetching data", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchJobs();
-  }, []);
+  // useEffect(() => {
+  //   const fetchJobs = async () => {
+  //     const apiUrl=isHome
+  //     ?"/api/jobs?_limit=3"
+  //     :"/api/jobs"
+  //     try {
+  //       const res = await fetch(apiUrl);
+  //       const data = await res.json();
+  //       setJobs(data);
+  //     } catch (error) {
+  //       console.log("Error fetching data", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchJobs();
+  // }, []);
 
+  const fetchApI= async ()=>{
+    const response= await axios.get("http://localhost:8080/jobs") 
+    setJobs(response.data.jobs);
+    console.log(response.data.jobs);
+  }
+
+  useEffect(()=>{
+    fetchApI();
+  },[])
   return (
+
   
     <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
