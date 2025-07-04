@@ -2,10 +2,6 @@ import { useState, useEffect } from "react";
 import JobListing from "./JobListing";
 import Spinner from "./Spinner";
 import axios from "axios";
-<<<<<<< HEAD
-=======
-
->>>>>>> e54868f7fd20356e3b2429fef470a7e11651c093
 
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
@@ -30,11 +26,7 @@ const [loading, setLoading] = useState(true);
   // }, []);
 
   const fetchApI= async ()=>{
-<<<<<<< HEAD
     const response= await axios.get("http://localhost:1100/api/jobs") 
-=======
-    const response= await axios.get("http://localhost:8080/jobs") 
->>>>>>> e54868f7fd20356e3b2429fef470a7e11651c093
     setJobs(response.data.jobs);
     console.log(response.data.jobs);
   }
