@@ -26,7 +26,7 @@ const [loading, setLoading] = useState(true);
   // }, []);
 
   const fetchApI= async ()=>{
-    const response= await axios.get("http://localhost:1100/api/jobs") 
+    const response= await axios.get("http://localhost:8080/jobs") 
     setJobs(response.data.jobs);
     console.log(response.data.jobs);
   }
