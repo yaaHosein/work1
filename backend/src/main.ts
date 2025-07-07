@@ -1,7 +1,10 @@
+import cors from "cors";
 import express from "express";
+
 import { JobController } from "./controllers/job-controller.js";
 
 var app = express();
+app.use(cors());
 app.use(express.json());
 
 const jobsRouter = express.Router();

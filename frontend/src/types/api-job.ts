@@ -1,6 +1,5 @@
-export interface Job {
+export interface ApiJob {
   id: string;
   title: string;
   company: string;
-  description: string;
 }

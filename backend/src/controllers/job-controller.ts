@@ -7,21 +7,25 @@ const jobs: Job[] = [
     id: "0197c05e-6145-7705-802f-df5efe75c6ea",
     title: "Software Engineer",
     company: "Tech Corp",
+    description: "Develop and maintain software applications.",
   },
   {
     id: "0197c05e-6145-7705-802f-e0024f3680cf",
     title: "Data Scientist",
     company: "Data Inc",
+    description: "Analyze and interpret complex data sets.",
   },
   {
     id: "0197c05e-6145-7705-802f-e5e6aca7ff67",
     title: "Product Manager",
     company: "Business Solutions",
+    description: "Oversee product development and strategy.",
   },
   {
     id: "0197c05e-6145-7705-802f-fb8d1a2c3b4d",
     title: "UX Designer",
     company: "Creative Agency",
+    description: "Design user-friendly interfaces and experiences.",
   },
 ];
 
