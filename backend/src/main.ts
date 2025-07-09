@@ -1,9 +1,9 @@
 import express from "express";
 var app = express();
-console.log("goo");
+console.log("gooooooooooooooooo");
 
 app.get("/",(req,res)=>{
-    res.send("Hellow world")
+    res.send("Hi my love  ")
 })
 
 // import { v7 } from "uuid";
@@ -25,9 +25,9 @@ app.get("/",(req,res)=>{
 //         company: "matrix",
 //     },
 // ];
-app.get("/api/jobs", (req, res) => {
-    res.json(jobs);
-});
+// app.get("/api/jobs", (req, res) => {
+//     res.json(jobs);
+// });
 // app.get("/api/jobs/:id", (req, res) => {
 //     const jobId = req.params.id;
 //     const job = jobs.find((j) => j.id === jobId);
