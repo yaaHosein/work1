@@ -25,18 +25,17 @@ const [loading, setLoading] = useState(true);
   //   fetchJobs();
   // }, []);
 
-  const fetchApI= async ()=>{
-    const response= await axios.get("http://localhost:8080/jobs") 
-    setJobs(response.data.jobs);
-    console.log(response.data.jobs);
+  const fetchJobs= async ()=>{
+    const res= await axios.get("http://localhost:1100/jobs") 
+    setJobs(res.data.jobs);
+    console.log(res.data.jobs);
   }
 
   useEffect(()=>{
-    fetchApI();
+    fetchJobs();
+    setLoading(false)
   },[])
   return (
-
-  
     <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
