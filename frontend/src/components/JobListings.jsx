@@ -6,6 +6,22 @@ import axios from "axios";
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  
+const BACKEND_URL = "http://localhost:1100";
+
+  useEffect(() => {
+    async function init() {
+      const res = await fetch(`${BACKEND_URL}/jobs`);
+      const data = await res.json();
+      console.log(data);
+    }
+    
+          init()
+          setLoading(false)
+  }, []);
+
+
 
   // useEffect(() => {
   //   const fetchJobs = async () => {
@@ -25,16 +41,20 @@ const JobListings = ({ isHome = false }) => {
   //   fetchJobs();
   // }, []);
 
-  const fetchJobs = async () => {
-    const res = await axios.get("http://localhost:1100/jobs");
-    setJobs(res.data.jobs);
-    console.log(res.data.jobs);
-  };
 
-  useEffect(() => {
-    fetchJobs();
-    setLoading(false);
-  }, []);
+
+
+
+  // const fetchJobs = async () => {
+  //   const res = await axios.get("http://localhost:1100/jobs");
+  //   setJobs(res.data.jobs);
+  //   console.log(res.data.jobs);
+  // };
+
+  // useEffect(() => {
+  //   fetchJobs();
+  //   setLoading(false);
+  // }, []);
   return (
     <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">

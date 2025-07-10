@@ -1,10 +1,7 @@
 import express from "express";
 import cors from "cors";
 var app = express();
-
-app.get("/", (req, res) => {
-  res.send("I frrrrrr ");
-});
+console.log("tee");
 
 const corsOptions = {
   origin: ["http://localhost:5000"],
@@ -12,7 +9,49 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/jobs/", (req, res) => {
+// type Job={
+//   id:string;
+//   name:string
+// }
+
+// const jobs: Job[]=[
+//   {
+//     id:"1",name: "Anything 1"
+//   },
+//   {
+//     id:"2",name: "Anything 2"
+//   },
+//   {
+//     id:"3",name: "Anything 3"
+//   },
+//   {
+//     id:"4",name: "Anything 4"
+//   },
+//   {
+//     id:"4",name: "Anything 4"
+//   }
+// ]
+
+// app.get("/", (req, res) => {
+//   res.send("I frrrrrr ");
+// });
+
+// app.get("/jobs", (req, res) => {  res.json(jobs)})
+
+app.get("/jobs/:id",(req,res)=>{
+  const jobId =req.params.id;
+  const job=jobs.find(j=>j.id===jobId)
+  if (job){
+    res.json(job)}
+    else{
+      res.status(404).send("job not found")
+    }
+})
+
+//     jobs: [
+
+
+app.get("/jobs", (req, res) => {
   res.json({
     jobs: [
       {
@@ -96,6 +135,14 @@ app.get("/jobs/", (req, res) => {
     ],
   });
 });
+
+
+
+// app.get("/jobs/:id", (req, res) => {
+//   const jobId = req.params.id;
+//   res.json({ id: jobId, title: `title ${jobId}` });
+// });
+
 
 // import { v7 } from "uuid";
 
