@@ -13,7 +13,7 @@ const JobListings = ({ isHome = false }) => {
     async function init() {
       const res = await fetch(`${BACKEND_URL}/jobs`);
       const data = await res.json();
-      setJobs(res.data.jobs);
+      // setJobs(res.data.jobs);
       console.log(data);
     }
 
