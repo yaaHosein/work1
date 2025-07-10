@@ -6,23 +6,20 @@ import axios from "axios";
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  
-const BACKEND_URL = "http://localhost:1100";
+
+  const BACKEND_URL = "http://localhost:1100";
 
   useEffect(() => {
     async function init() {
       const res = await fetch(`${BACKEND_URL}/jobs`);
       const data = await res.json();
-   setJobs(res.data.jobs)
+      setJobs(res.data.jobs);
       console.log(data);
     }
-    
-          init()
-          setLoading(false)
+
+    init();
+    setLoading(false);
   }, []);
-
-
 
   // useEffect(() => {
   //   const fetchJobs = async () => {
@@ -41,10 +38,6 @@ const BACKEND_URL = "http://localhost:1100";
   //   };
   //   fetchJobs();
   // }, []);
-
-
-
-
 
   // const fetchJobs = async () => {
   //   const res = await axios.get("http://localhost:1100/jobs");
