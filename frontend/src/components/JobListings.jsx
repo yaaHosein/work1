@@ -14,6 +14,7 @@ const BACKEND_URL = "http://localhost:1100";
     async function init() {
       const res = await fetch(`${BACKEND_URL}/jobs`);
       const data = await res.json();
+   setJobs(res.data.jobs)
       console.log(data);
     }
     
