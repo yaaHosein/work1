@@ -11,7 +11,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
 const jobs: Job[] = [
   {
     id: v7(),
@@ -30,7 +29,7 @@ const jobs: Job[] = [
     },
   },
   {
-    id:v7(),
+    id: v7(),
     title: "Front-End Engineer (React & Redux)",
     type: "Full-Time",
     location: "Miami, FL",
@@ -46,7 +45,7 @@ const jobs: Job[] = [
     },
   },
   {
-    id:v7(),
+    id: v7(),
     title: "Full Stack Reac",
     type: "Full-Time",
     location: "Atlanta,",
@@ -77,14 +76,11 @@ const jobs: Job[] = [
       contactPhone: "555-555-5555",
     },
   },
-  
 ];
 
-
 app.get("/jobs", (req, res) => {
-  res.json(jobs
-)})
-
+  res.json(jobs);
+});
 
 // app.get("/jobs/:id", (req, res) => {
 //   const jobId = req.params.id
@@ -96,14 +92,12 @@ app.get("/jobs", (req, res) => {
 //   }
 // });
 
-
 // app.post("jobs", express.json(), (req, res) => {
 //     const newJob:Job = req.body;
 //     newJob.id = v7(); // simple Id generation
 //     jobs.push(newJob);
 //     res.status(201).json(newJob);
 // });
-
 
 app.listen(1100, () => {
   console.log("server is running on port 1100");
