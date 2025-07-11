@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import { v7 } from "uuid";
+
+import { Job } from "./types/job.js";
 var app = express();
 
 const corsOptions = {
@@ -8,29 +11,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-type Job = {
-  id: string;
-  title: string;
-  type: string;
-  description: string;
-  location: string;
-  salary: string;
-  company: object;
-};
-
-app.get("/jobs/:id", (req, res) => {
-  const jobId = req.params.id;
-  const job = jobs.find((j) => j.id === jobId);
-  if (job) {
-    res.json(job);
-  } else {
-    res.status(404).send("job not found");
-  }
-});
 
 const jobs: Job[] = [
   {
-    id: "1",
+    id: v7(),
     title: "Senior React Developer",
     type: "Full-Time",
     description:
@@ -46,7 +30,7 @@ const jobs: Job[] = [
     },
   },
   {
-    id: "2",
+    id:v7(),
     title: "Front-End Engineer (React & Redux)",
     type: "Full-Time",
     location: "Miami, FL",
@@ -62,7 +46,7 @@ const jobs: Job[] = [
     },
   },
   {
-    id: "5",
+    id:v7(),
     title: "Full Stack Reac",
     type: "Full-Time",
     location: "Atlanta,",
@@ -78,7 +62,7 @@ const jobs: Job[] = [
     },
   },
   {
-    id: "6",
+    id: v7(),
     title: "React Native Developer",
     type: "Full-Time",
     description:
@@ -93,25 +77,33 @@ const jobs: Job[] = [
       contactPhone: "555-555-5555",
     },
   },
-  {
-    id: "c784",
-    title: "ddd",
-    type: "Full-Time",
-    location: "dd",
-    description: "",
-    salary: "Under $50K",
-    company: {
-      name: "",
-      description: "",
-      contactEmail: "ss@gmail.com",
-      contactPhone: "",
-    },
-  },
+  
 ];
 
-app.get("/api/jobs", (req, res) => {
-  res.json({jobs
-})})
+
+app.get("/jobs", (req, res) => {
+  res.json(jobs
+)})
+
+
+app.get("/jobs/:id", (req, res) => {
+  const jobId = req.params.id
+  const job = jobs.find((j) => j.id === jobId);
+  if (job) {
+    res.json(job);
+  } else {
+    res.status(404).json({message:"job not found"});
+  }
+});
+
+
+app.post("jobs", express.json(), (req, res) => {
+    const newJob:Job = req.body;
+    newJob.id = v7(); // simple Id generation
+    jobs.push(newJob);
+    res.status(201).json(newJob);
+});
+
 
 app.listen(1100, () => {
   console.log("server is running on port 1100");
