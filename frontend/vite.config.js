@@ -8,12 +8,12 @@ export default defineConfig({
   root: "frontend",
   server: {
     port: 5008,
-    proxy: {
-          '/api': {
-            target: 'http://localhost:1100',
-            changeOrigin: true,
-            rewrite: (path) => path.replace(/^\/api/, ''),
-          },
-        },
+    // proxy: {
+    //       '/api': {
+    //         target: 'http://localhost:1100',
+    //         changeOrigin: true,
+    //         rewrite: (path) => path.replace(/^\/api/, ''),
+    //       },
+    //     },
   },
 });
