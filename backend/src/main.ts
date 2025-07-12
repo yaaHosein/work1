@@ -82,15 +82,15 @@ app.get("/jobs", (req, res) => {
   res.json(jobs);
 });
 
-// app.get("/jobs/:id", (req, res) => {
-//   const jobId = req.params.id
-//   const job = jobs.find((j) => j.id === jobId);
-//   if (job) {
-//     res.json(job);
-//   } else {
-//     res.status(404).json({message:"job not found"});
-//   }
-// });
+app.get("/jobs/:id", (req, res) => {
+  const jobId = req.params.id
+  const job = jobs.find((j) => j.id === jobId);
+  if (job) {
+    res.json(job);
+  } else {
+    res.status(404).json({message:"job not found"});
+  }
+});
 
 // app.post("jobs", express.json(), (req, res) => {
 //     const newJob:Job = req.body;
