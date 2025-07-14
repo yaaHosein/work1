@@ -6,7 +6,9 @@ import { JobController } from "./controller/job-controller.js";
 // import { Job } from "./types/job.js";
 
 var app = express();
+app.use(cors());
 app.use(express.json())
+
 const JobsRouter=express.Router();
 new JobController(JobsRouter)
 
@@ -41,11 +43,11 @@ app.use(`/api${JobController.path}`,JobsRouter)
 
 
 
-const corsOptions = {
-  origin: ["http://localhost:5008"],
-};
+// const corsOptions = {
+//   origin: ["http://localhost:5008"],
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 
 app.listen(1100, () => {

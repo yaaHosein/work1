@@ -79,6 +79,7 @@ export class JobController {
   createJob(request: Request, response: Response) {
     const newJob: Job = request.body;
     newJob.id = v7();
+    console.log("creating new job with ID", newJob);
 
     jobs.push(newJob);
     response.status(201).json(newJob);
@@ -101,17 +102,14 @@ export class JobController {
     console.log("updated job data ", updateJob);
   }
 
-    
-  deleteJob(request:Request,response:Response){
-    const jobId=request.params.id;
-    const jobIndex= jobs.findIndex((j)=>j.id===jobId)
-    if (jobIndex===-1){
- response.status(404).json({message:"Job not found"});
- return
+  deleteJob(request: Request, response: Response) {
+    const jobId = request.params.id;
+    const jobIndex = jobs.findIndex((j) => j.id === jobId);
+    if (jobIndex === -1) {
+      response.status(404).json({ message: "Job not found" });
+      return;
     }
-  jobs.splice(jobIndex,1)
-  response.status(204).send()
+    jobs.splice(jobIndex, 1);
+    response.status(204).send();
   }
-
-
 }
