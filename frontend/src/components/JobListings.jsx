@@ -1,25 +1,48 @@
 import { useState, useEffect } from "react";
 import JobListing from "./JobListing";
 import Spinner from "./Spinner";
+import { container } from "../container";
+// import cors from "cors";
 // import axios from "axios";
+
 
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+const [error,setError]=useState(null)
 
-  const BACKEND_URL = "http://localhost:1100";
+useEffect(()=>{
+  async function loadJobs(){
+    const jobsService=container.JobsService;
+    setLoading(true)
+        const [error,jobsData]=await jobsService.getJobs()
+    if (error){
 
-  useEffect(() => {
-    async function init() {
-      const res = await fetch(`${BACKEND_URL}/jobs`);
-      const data = await res.json();
-      setJobs(data);
-      console.log(data);
-    }
+    console.error("Error fetching jobs:",error);
+    setError("Failed to load jobs. Please try again later.")
+   } else {
+    setJobs(jobsData)
+   } 
+   setLoading(false)
+  }
+  loadJobs()
+},[])
 
-    init(); 
-    setLoading(false);
-  }, []);
+
+
+  // const BACKEND_URL = "http://localhost:1100";
+
+  // useEffect(() => {
+  //   async function init() {
+  //     const res = await fetch(`${BACKEND_URL}/jobs`);
+  //     const data = await res.json();
+  //     setJobs(data);
+  //     console.log(data);
+  //   }
+
+  //   init(); 
+  //   setLoading(false);
+  // }, []);
 
   // useEffect(() => {
   //   const fetchJobs = async () => {
