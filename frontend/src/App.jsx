@@ -13,21 +13,21 @@ import AddJobPage from "./pages/AddJobPage";
 import EditJobPage from "./pages/EditJobPage";
 
 const App = () => {
-  var addJob;
+  // var addJob;
 
-  // //add new job
-  // const addJob = async (newJob) => {
-  //   console.log(newJob);
+  //add new job
+  const addJob = async (newJob) => {
+    console.log(newJob);
 
-  //   const res = await fetch("/api/jobs", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(newJob),
-  //   });
-  //   return;
-  // };
+    const res = await fetch("/api/jobs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newJob),
+    });
+    return;
+  };
 
   //delete job:
   const deleteJob = async (id) => {
