@@ -5,30 +5,26 @@ import { container } from "../container";
 // import cors from "cors";
 // import axios from "axios";
 
-
 const JobListings = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-const [error,setError]=useState(null)
+  const [error, setError] = useState(null);
 
-useEffect(()=>{
-  async function loadJobs(){
-    const jobsService=container.JobsService;
-    setLoading(true)
-        const [error,jobsData]=await jobsService.getJobs()
-    if (error){
-
-    console.error("Error fetching jobs:",error);
-    setError("Failed to load jobs. Please try again later.")
-   } else {
-    setJobs(jobsData)
-   } 
-   setLoading(false)
-  }
-  loadJobs()
-},[])
-
-
+  useEffect(() => {
+    async function loadJobs() {
+      const jobsService = container.JobsService;
+      setLoading(true);
+      const [error, jobsData] = await jobsService.getJobs();
+      if (error) {
+        console.error("Error fetching jobs:", error);
+        setError("Failed to load jobs. Please try again later.");
+      } else {
+        setJobs(jobsData);
+      }
+      setLoading(false);
+    }
+    loadJobs();
+  }, []);
 
   // const BACKEND_URL = "http://localhost:1100";
 
@@ -40,7 +36,7 @@ useEffect(()=>{
   //     console.log(data);
   //   }
 
-  //   init(); 
+  //   init();
   //   setLoading(false);
   // }, []);
 
