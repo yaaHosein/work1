@@ -1,6 +1,7 @@
-import { Router, Request, Response, request } from "express";
+import { Router, Request, Response } from "express";
 import { Job } from "../types/job.js";
 import { v7 } from "uuid";
+
 
 const jobs: Job[] = [
   {
