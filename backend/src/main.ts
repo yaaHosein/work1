@@ -1,4 +1,4 @@
-import cors from "cors";
+import cors from "cors";                                                                                                                                                                
 import express from "express";
 import { JobController } from "./controller/job-controller.js";
 // import { v7 } from "uuid";
