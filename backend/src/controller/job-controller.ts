@@ -2,7 +2,6 @@ import { Router, Request, Response } from "express";
 import { Job } from "../types/job.js";
 import { v7 } from "uuid";
 
-
 const jobs: Job[] = [
   {
     id: "0197fd96-7a50-74d6-94bb-c4a5b0b8d515",
