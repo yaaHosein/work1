@@ -4,6 +4,8 @@ import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { JobsProvider } from "../providers/jobs-provider";
+
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
@@ -138,3 +140,6 @@ const jobLoader = async ({ params }) => {
   return data;
 };
 export { JobPage as default, jobLoader };
+
+
+
