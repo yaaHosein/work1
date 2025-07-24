@@ -12,8 +12,7 @@ const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const job = useLoaderData();
-  console.log("job",job);
-  
+  console.log("job", job);
 
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm(
@@ -141,6 +140,3 @@ const jobLoader = async ({ params }) => {
   return data;
 };
 export { JobPage as default, jobLoader };
-
-
-
