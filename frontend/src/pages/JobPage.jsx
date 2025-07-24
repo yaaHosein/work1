@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const API_ENDPOINT = "http://localhost:1100/api";
+const JOB_URL = "/jobs";
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
@@ -135,7 +136,7 @@ const JobPage = ({ deleteJob }) => {
 }
 
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`${API_ENDPOINT}/jobs/${params.id}`);
+  const res = await fetch(`${API_ENDPOINT}${JOB_URL}/${params.id}`);
   const data = await res.json();
   return data;
 };
