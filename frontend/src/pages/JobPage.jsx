@@ -4,8 +4,8 @@ import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import { JobsProvider } from "../providers/jobs-provider";
 
+const API_ENDPOINT = "http://localhost:1100/api";
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
@@ -135,7 +135,7 @@ const JobPage = ({ deleteJob }) => {
 }
 
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`http://localhost:1100/api/jobs/${params.id}`);
+  const res = await fetch(`${API_ENDPOINT}/jobs/${params.id}`);
   const data = await res.json();
   return data;
 };
