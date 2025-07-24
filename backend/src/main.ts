@@ -12,7 +12,8 @@ app.use(express.json())
 const JobsRouter=express.Router();
 new JobController(JobsRouter)
 
-app.use(`/api${JobController.path}`,JobsRouter)
+// app.use(`/api${JobController.path}`,JobsRouter)
+app.use(`/${JobController.path}`,JobsRouter)
 
 
 // app.get("/api/jobs", (req, res) => {
