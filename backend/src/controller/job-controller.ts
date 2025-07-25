@@ -70,6 +70,8 @@ export class JobController {
 
   getJobById(request: Request, response: Response) {
     const jobId = request.params.id;
+    console.log(jobId);
+    
     const job = jobs.find((j) => j.id === jobId);
     job
       ? response.json(job)
