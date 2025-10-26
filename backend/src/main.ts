@@ -10,7 +10,7 @@ app.use(express.json());
 const JobsRouter = express.Router();
 new JobController(JobsRouter);
 
-app.use(`/api${JobController.path}`, JobsRouter);
+app.use(`/${JobController.path}`, JobsRouter);
 
 app.listen(1100, () => {
   console.log("server is running on port 1100");
