@@ -14,7 +14,8 @@ import EditJobPage from "./pages/EditJobPage";
 
 const App = () => {
   //add new job
-  const addJob = () => {};
+  const addJob =async (newJob) => {console.log(newJob);
+  };
   //delete job:
   const deleteJob = () => {};
   // edit job

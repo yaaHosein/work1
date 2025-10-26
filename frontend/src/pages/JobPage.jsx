@@ -12,7 +12,6 @@ const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
   const { id } = useParams();
   const job = useLoaderData();
-  console.log("job", job);
 
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm(

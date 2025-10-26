@@ -51,6 +51,22 @@ const jobs: Job[] = [
       contactPhone: "555-555-5555",
     },
   },
+  {
+    id: "0197fd96-7a52-77a5-ac8f-8d660a1c9b8e",
+    title: "Full Stack Reac",
+    type: "Full-Time",
+    location: "Atlanta,",
+    description:
+      "Exciting opportunity for a Full-Time Front-End Developer in bustling Atlanta, GA. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
+    salary: "$90K - $100K",
+    company: {
+      name: "Browningbbbbbbbbbbbbbb Technologies",
+      description:
+        "Browning Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
+      contactEmail: "contact@consecteturadipisicing.com",
+      contactPhone: "555-555-5555",
+    },
+  }
 ];
 
 export class JobController {
@@ -70,7 +86,6 @@ export class JobController {
 
   getJobById(request: Request, response: Response) {
     const jobId = request.params.id;
-    console.log(jobId);
     
     const job = jobs.find((j) => j.id === jobId);
     job
