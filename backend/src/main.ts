@@ -1,15 +1,5 @@
 import express from "express";
-
-var app = express();
-// console.log("foo");
-
-app.listen(1100, ():void => {
-  console.log("server is running on port 1100");
-});
-
 import cors from "cors";
-import express from "express";
-
 import { JobController } from "./controller/job-controller.js";
 
 var app = express();

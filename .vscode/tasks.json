@@ -10,6 +10,14 @@
 			],
 			"group": "build",
 			"label": "build bakchend in watch mode"
+		},
+		{
+			"type": "npm",
+			"script": "backend:build",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: backend:build",
+			"detail": "tsc --project backend/tsconfig.json"
 		}
 	]
 }
