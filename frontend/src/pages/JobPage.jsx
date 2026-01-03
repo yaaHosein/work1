@@ -5,8 +5,8 @@ import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const API_ENDPOINT = "http://localhost:1100/";
-const JOB_URL = "/jobs";
+const JOB_URL = "http://localhost:1100/";
+const API_ENDPOINT = "/jobs";
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
@@ -134,7 +134,7 @@ const JobPage = ({ deleteJob }) => {
 }
 
 const jobLoader = async ({ params }) => {
-  const res = await fetch(`${API_ENDPOINT}${JOB_URL}/${params.id}`);
+  const res = await fetch(`${JOB_URL}${API_ENDPOINT}/${params.id}`);
   const data = await res.json();
   return data;
 };
