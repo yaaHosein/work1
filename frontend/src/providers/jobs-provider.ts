@@ -1,13 +1,13 @@
 import { ApiJob } from "../types/api-job";
 
-const JOB_ENDPOINT = "/jobs";
+const JOB_ENDPOINT:String = "/jobs";
 
 export class JobsProvider {
   constructor(private endpoint: string) {}
 
   async getJobs(): Promise<ApiJob[]> {
-    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`);
-    const data = await response.json();
+    const response:Response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`);
+    const data:any = await response.json();
     return data;
   }
 
