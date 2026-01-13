@@ -30,6 +30,9 @@ const JobListings = ({ isHome = false }) => {
         <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
+        {error ? (
+          <div className="text-red-500 text-center mb-4">{error}</div>
+        ) : null}
 
         {loading ? (
           <Spinner loading={loading} />
