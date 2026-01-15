@@ -24,7 +24,7 @@ const JobListings = ({ isHome = false }) => {
     loadJobs();
   }, []);
   
-const recentJobs=jobs.slice(0,1)
+const jobListings=isHome?jobs.slice(0,2):jobs;
   return (
     <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
@@ -39,7 +39,7 @@ const recentJobs=jobs.slice(0,1)
           <Spinner loading={loading} />
         ) : (
           <div className="grid grid-c ols-1 md:grid-cols-3 gap-6">
-            {recentJobs.map((job) => (
+            {jobListings.map((job) => (
               <JobListing key={job.id} job={job} />
             ))}
           </div>
