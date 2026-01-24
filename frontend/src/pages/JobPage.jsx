@@ -1,5 +1,5 @@
 // import { useState, useEffect } from "react";
-import { useParams, useLoaderData, useNavigate } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 // import Spinner from "../components/Spinner";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -10,7 +10,6 @@ const API_ENDPOINT = "/jobs";
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
-  const { id } = useParams();
   const job = useLoaderData();
 
   const onDeleteClick = (jobId) => {
@@ -134,6 +133,7 @@ const JobPage = ({ deleteJob }) => {
 }
 
 const jobLoader = async ({ params }) => {
+  console.log(params)
   const res = await fetch(`${JOB_URL}${API_ENDPOINT}/${params.id}`);
   const data = await res.json();
   return data;
