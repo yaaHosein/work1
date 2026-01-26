@@ -1,12 +1,9 @@
-// import { useState, useEffect } from "react";
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 // import Spinner from "../components/Spinner";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-
-const JOB_URL = "http://localhost:1100/api";
-const API_ENDPOINT = "/jobs";
+import { container } from "../container";
 
 const JobPage = ({ deleteJob }) => {
   const navigate = useNavigate();
@@ -21,24 +18,6 @@ const JobPage = ({ deleteJob }) => {
     toast.success("Job deleted successfully");
     navigate("/jobs");
   };
-  // const [job, setJob] = useState(null);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchJob = async () => {
-  //     try {
-  //       const res = await fetch(`/api/jobs/${id}`);
-  //       const data = await res.json();
-  //       setJob(data);
-  //     } catch (error) {
-  //       console.log("Error fetching data", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-
-  //   };
-  //   fetchJob();
-  // }, []);
   return (
     <>
       <section>
@@ -133,9 +112,8 @@ const JobPage = ({ deleteJob }) => {
 }
 
 const jobLoader = async ({ params }) => {
-  console.log(params)
-  const res = await fetch(`${JOB_URL}${API_ENDPOINT}/${params.id}`);
-  const data = await res.json();
-  return data;
+  const jobsService = container.JobsService;
+  const [error, job] = await jobsService.getJobById(params.id);
+  return error ? null : job;
 };
 export { JobPage as default, jobLoader };
