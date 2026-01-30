@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { container } from "../container";
+
 
 const AddJobPage = ({ addJobSubmit }) => {
   const [title, setTitle] = useState("");
@@ -14,6 +16,8 @@ const AddJobPage = ({ addJobSubmit }) => {
   const [contactPhone, setContactPhone] = useState("");
 
   const navigate = useNavigate();
+    const job = useLoaderData();
+
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -237,4 +241,10 @@ const AddJobPage = ({ addJobSubmit }) => {
   );
 };
 
-export default AddJobPage;
+const jobLoader = async ({ params }) => {
+  const jobsService_ = container.JobsService;
+  const [error, job] = await jobsService_.getJobById(params.id);
+  return error ? null : job;
+};
+
+export {AddJobPage as default  , jobLoader}

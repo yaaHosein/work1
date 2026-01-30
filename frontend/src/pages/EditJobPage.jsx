@@ -1,6 +1,7 @@
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { container } from "../container";
 
 const EditJobPage = ({ updateJobSubmit }) => {
   const job = useLoaderData();
@@ -243,4 +244,12 @@ const EditJobPage = ({ updateJobSubmit }) => {
   );
 };
 
-export default EditJobPage;
+
+const jobLoader = async ({ params }) => {
+  const jobsService_ = container.JobsService;
+  const [error, job] = await jobsService_.getJobById(params.id);
+  return error ? null : job;
+};
+
+
+export {EditJobPage as default  , jobLoader}

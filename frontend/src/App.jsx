@@ -36,7 +36,7 @@ const App = () => {
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
-        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
+        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />}   loader={jobLoader}/>
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
