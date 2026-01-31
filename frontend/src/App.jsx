@@ -17,7 +17,14 @@ const App = () => {
   const addJob =async (newJob) => {console.log(newJob);
   };
   //delete job:
-  const deleteJob = () => {};
+
+    const deleteJob = async (id) => {
+    const res = await fetch(`/api/jobs/${id}`,{
+      method:'DELETE'
+    })
+return
+  };
+  
   // edit job
   const updateJob = () => {};
 
