@@ -11,6 +11,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 import EditJobPage from "./pages/EditJobPage";
+import { container } from "./container";
 
 const App = () => {
   //add new job
@@ -18,11 +19,12 @@ const App = () => {
   };
   //delete job:
 
-    const deleteJob = async (id) => {
-    const res = await fetch(`/api/jobs/${id}`,{
-      method:'DELETE'
-    })
-return
+  
+    const deleteJob = async (params) => {
+      const jobsService = container.JobsService;
+  const [error, job] = await jobsService.getJobById(params.id);
+  return error ? null : [];
+
   };
   
   // edit job
