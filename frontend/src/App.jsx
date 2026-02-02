@@ -14,6 +14,8 @@ import EditJobPage from "./pages/EditJobPage";
 
 import { container } from "./container";
 
+const API_URL = "http://localhost:1100/api";
+
 const App = () => {
   //add new job
   const addJob = async (newJob) => {
@@ -22,7 +24,7 @@ const App = () => {
   //delete job:
 
   const deleteJob = async (id) => {
-    const res = await fetch(`http://localhost:1100/api/jobs/${id}`, {
+    const res = await fetch(`${API_URL}/jobs/${id}`, {
       method: "DELETE",
     });
     return;
