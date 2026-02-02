@@ -12,27 +12,21 @@ import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 import EditJobPage from "./pages/EditJobPage";
 
-
 import { container } from "./container";
 
 const App = () => {
   //add new job
-  const addJob =async (newJob) => {console.log(newJob);
+  const addJob = async (newJob) => {
+    console.log(newJob);
   };
   //delete job:
 
-  
-
-    const deleteJob = async (id) => {
-      const res = await fetch(`http://localhost:1100/api/jobs/${id}`,{
-        method:'DELETE'
-      })
-      return
-  //     const jobsService = container.JobsService;
-  // const [error, job] = await jobsService.getJobById(params.id);
-  // return error ? null : [];
-
-  };  
+  const deleteJob = async (id) => {
+    const res = await fetch(`http://localhost:1100/api/jobs/${id}`, {
+      method: "DELETE",
+    });
+    return;
+  };
   // edit job
   const updateJob = () => {};
 
@@ -51,7 +45,11 @@ const App = () => {
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
-        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />}   loader={jobLoader}/>
+        <Route
+          path="/add-job"
+          element={<AddJobPage addJobSubmit={addJob} />}
+          loader={jobLoader}
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
