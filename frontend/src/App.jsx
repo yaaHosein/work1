@@ -24,7 +24,7 @@ const App = () => {
   
 
     const deleteJob = async (id) => {
-      const res = await fetch(`http://api/jobs/${id}`,{
+      const res = await fetch(`/api/jobs/${id}`,{
         method:'DELETE'
       })
       return
