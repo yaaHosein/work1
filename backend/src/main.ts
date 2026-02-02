@@ -14,30 +14,3 @@ app.use(`/api${JobController.path}`, JobsRouter);
 app.listen(1100, () => {
   console.log("server is running on port 1100");
 });
-
-
-
-// const app = express();
-// app.use(logger);
-// app.get('/', (req, res) => {
-//   res.send("Home Page");
-// });
-// app.get('/jobs', (req, res) => {
-//   console.log("jobs page");
-
-//   res.send("Jobs Page");
-// });
-
-// function logger(req, res, next) {
-//   console.log("Log");
-//   next();
-// }
-
-// app.listen(1100, (): void => {
-//   console.log("server is running on port 1100");
-// });
-
-
-
-
-
