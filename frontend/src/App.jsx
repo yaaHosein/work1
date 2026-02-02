@@ -23,10 +23,14 @@ const App = () => {
 
   
 
-    const deleteJob = async (params) => {
-      const jobsService = container.JobsService;
-  const [error, job] = await jobsService.getJobById(params.id);
-  return error ? null : [];
+    const deleteJob = async (id) => {
+      const res = await fetch(`http://api/jobs/${id}`,{
+        method:'DELETE'
+      })
+      return
+  //     const jobsService = container.JobsService;
+  // const [error, job] = await jobsService.getJobById(params.id);
+  // return error ? null : [];
 
   };  
   // edit job
