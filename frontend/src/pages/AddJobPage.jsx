@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { container } from "../container";
 
@@ -16,8 +16,6 @@ const AddJobPage = ({ addJobSubmit }) => {
   const [contactPhone, setContactPhone] = useState("");
 
   const navigate = useNavigate();
-    const job = useLoaderData();
-
 
   const submitForm = (e) => {
     e.preventDefault();

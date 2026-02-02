@@ -17,7 +17,6 @@ const JobListing = ({ job }) => {
           <div className="text-gray-600 my-2">{job.type}</div>
           <h3 className="text-xl font-bold"> {job.title}</h3>
         </div>
-        {/* <div>{job.image}</div> */}
         <div className="mb-5">{description}</div>
         <button
           onClick={() => setShowFullDescription((prevState) => !prevState)}
