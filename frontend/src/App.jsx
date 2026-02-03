@@ -14,6 +14,7 @@ import EditJobPage from "./pages/EditJobPage";
 
 const API_URL = "http://localhost:1100/api";
 
+
 const App = () => {
   //add new job
   const addJob = async (newJob) => {
