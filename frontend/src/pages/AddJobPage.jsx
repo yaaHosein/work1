@@ -239,10 +239,10 @@ const AddJobPage = ({ addJobSubmit }) => {
   );
 };
 
-const jobLoader = async ({ params }) => {
-  const jobsService_ = container.JobsService;
-  const [error, job] = await jobsService_.getJobById(params.id);
-  return error ? null : job;
-};
+// const jobLoader = async ({ params }) => {
+//   const jobsService_ = container.JobsService;
+//   const [error, job] = await jobsService_.getJobById(params.id);
+//   return error ? null : job;
+// };
 
-export {AddJobPage as default  , jobLoader}
+export {AddJobPage as default  }

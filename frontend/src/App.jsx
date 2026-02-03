@@ -17,8 +17,16 @@ const API_URL = "http://localhost:1100/api";
 const App = () => {
   //add new job
   const addJob = async (newJob) => {
-    console.log(newJob);
+    const res = await fetch('${API_URL}/jobs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newJob),
+    });
+    return;
   };
+
   //delete job:
   const deleteJob = async (id) => {
     const res = await fetch(`${API_URL}/jobs/${id}`, {
@@ -46,7 +54,7 @@ const App = () => {
         <Route
           path="/add-job"
           element={<AddJobPage addJobSubmit={addJob} />}
-          loader={jobLoader}
+       
         />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
