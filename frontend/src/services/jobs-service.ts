@@ -13,4 +13,13 @@ export class JobsService {
       return [true, []];
     }
   }
+  async getJobById(id: string): Promise<[Boolean, Job]> {
+    try {
+      const job = await this.jobProvider.getJobById(id);
+      return [false, job];
+    } catch (error) {
+      console.log(`Error fetching job with id $(id):`, error);
+      return [true, null];
+    }
+  }
 }

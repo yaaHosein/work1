@@ -51,6 +51,7 @@ const jobs: Job[] = [
       contactPhone: "555-555-5555",
     },
   },
+  
 ];
 
 export class JobController {
@@ -70,6 +71,7 @@ export class JobController {
 
   getJobById(request: Request, response: Response) {
     const jobId = request.params.id;
+    
     const job = jobs.find((j) => j.id === jobId);
     job
       ? response.json(job)
