@@ -55,7 +55,6 @@ const App = () => {
         <Route
           path="/add-job"
           element={<AddJobPage addJobSubmit={addJob} />}
-       
         />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
