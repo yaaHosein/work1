@@ -11,17 +11,15 @@ import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
 import EditJobPage from "./pages/EditJobPage";
-
-const API_URL = "http://localhost:1100/api";
-
+import { container } from "./container";
 
 const App = () => {
   //add new job
   const addJob = async (newJob) => {
-    const res = await fetch('${API_URL}/jobs', {
-      method: 'POST',
+    const res = await fetch("${API_URL}/jobs", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newJob),
     });
@@ -30,10 +28,11 @@ const App = () => {
 
   //delete job:
   const deleteJob = async (id) => {
-    const res = await fetch(`${API_URL}/jobs/${id}`, {
-      method: "DELETE",
-    });
+    const jobsService = container.JobsService;
+    const res = await jobsService.deleteJob(id);
+    console.log(res);
   };
+
   // edit job
   const updateJob = () => {};
 
@@ -52,14 +51,12 @@ const App = () => {
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
-        <Route
-          path="/add-job"
-          element={<AddJobPage addJobSubmit={addJob} />}
-        />
+        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );
+
   return <RouterProvider router={router} />;
 };
 
