@@ -22,4 +22,14 @@ export class JobsService {
       return [true, null];
     }
   }
+
+  async deleteJob (jobId: string): Promise<Boolean> {
+    try {
+       await this.jobProvider.deleteJob(jobId);
+      return false;
+    } catch (error) {
+      console.log(`Error deleting job with id $(jobId):`, error);
+      return true;
+    }
+  }
 }
