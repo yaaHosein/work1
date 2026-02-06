@@ -42,8 +42,4 @@ export class JobsService {
       return [true,[]];
     }
   }
-
-
-
-
 }
