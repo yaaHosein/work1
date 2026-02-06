@@ -33,15 +33,17 @@ export class JobsService {
     }
   }
 
-
-  async createJob (jobId: string): Promise<Boolean> {
+  async createJob (): Promise<[boolean, Job[]]> {
     try {
-       await this.jobProvider.createJob(jobId);
-      return false;
+      const jobs= await this.jobProvider.createJob();
+      return [false,jobs];
     } catch (error) {
-      console.log(`Error creating job with id $(jobId):`, error);
-      return true;
+      console.log("Error creating jobs: ", error);
+      return [true,[]];
     }
   }
+
+
+
 
 }

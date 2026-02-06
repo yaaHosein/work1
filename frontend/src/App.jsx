@@ -15,9 +15,9 @@ import { container } from "./container";
 
 const App = () => {
   //add new job
-  const createJob = async (id) => {
+  const createJob = async () => {
     const jobsService = container.JobsService;
-    const res = await jobsService.createJob(id);
+    const res = await jobsService.createJob();
     console.log(res);
   };
 
