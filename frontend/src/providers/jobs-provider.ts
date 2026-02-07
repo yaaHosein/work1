@@ -31,7 +31,7 @@ export class JobsProvider {
     }
   }
 
-  async createJob(): Promise<void> {
+  async createJob():  Promise<ApiJob[]> {
     const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`, {
       method: "POST",
     });
