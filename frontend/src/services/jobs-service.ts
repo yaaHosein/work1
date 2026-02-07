@@ -33,13 +33,13 @@ export class JobsService {
     }
   }
 
-  async createJob (): Promise<[boolean, Job[]]> {
-    try {
-      await this.jobProvider.createJob();
-      return [false,newJob];
+  async createJob(): Promise<[boolean, Job[]]>  {
+ try {
+      const newJobs = await this.jobProvider.getJobs();
+      return [false, newJobs];
     } catch (error) {
-      console.log("Error creating jobs: ", error);
-      return [true,[]]
+      console.error("Error fetching jobs: ", error);
+      return [true, []];
     }
-  }
+}
 }
