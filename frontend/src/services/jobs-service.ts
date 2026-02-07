@@ -38,7 +38,7 @@ export class JobsService {
       const newJobs = await this.jobProvider.getJobs();
       return [false, newJobs];
     } catch (error) {
-      console.error("Error fetching jobs: ", error);
+      console.error("Error creating new jobs: ", error);
       return [true, []];
     }
 }
