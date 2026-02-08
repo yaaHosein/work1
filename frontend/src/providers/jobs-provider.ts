@@ -39,5 +39,7 @@ export class JobsProvider {
     if (!response.ok) {
       throw new Error(`Error creating job details:${response.statusText}`);
     }
+     const data = await response.json();
+    return data;
   }
 }
