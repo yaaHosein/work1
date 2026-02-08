@@ -12,7 +12,7 @@ export class JobsProvider {
   }
 
   async getJobById(jobId: string): Promise<ApiJob> {
-    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}/${jobId}`);
+    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}/`);
 
     if (!response.ok) {
       throw new Error(`Error fetching job details:${response.statusText}`);
@@ -28,6 +28,16 @@ export class JobsProvider {
 // was my status code between 200 and 209?
     if (!response.ok) {
       throw new Error(`Error deleting job details:${response.statusText}`);
+    }
+  }
+
+  async createJob():  Promise<ApiJob[]> {
+    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`, {
+      method: "POST",
+    });
+// was my status code between 200 and 209?
+    if (!response.ok) {
+      throw new Error(`Error creating job details:${response.statusText}`);
     }
   }
 }

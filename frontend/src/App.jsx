@@ -15,15 +15,10 @@ import { container } from "./container";
 
 const App = () => {
   //add new job
-  const addJob = async (newJob) => {
-    const res = await fetch("${API_URL}/jobs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newJob),
-    });
-    return;
+  const createJob = async (newJob) => {
+    const jobsService = container.JobsService;
+    const res = await jobsService.createJob(newJob);
+    console.log(res);
   };
 
   //delete job:
@@ -51,7 +46,7 @@ const App = () => {
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
-        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
+        <Route path="/add-job" element={<AddJobPage addJobSubmit={createJob} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
