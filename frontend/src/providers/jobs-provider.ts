@@ -31,8 +31,8 @@ export class JobsProvider {
     }
   }
 
-  async createJob():  Promise<ApiJob[]> {
-    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`, {
+  async createJob(ApiJob:object):  Promise<ApiJob[]> {
+    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}${ApiJob}`, {
       method: "POST",
     });
 // was my status code between 200 and 209?
