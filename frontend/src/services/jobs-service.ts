@@ -33,9 +33,9 @@ export class JobsService {
     }
   }
 
-  async createJob(): Promise<[boolean, Job[]]>  {
+  async createJob(newJob): Promise<[boolean, Job[]]>  {
  try {
-      const newJob = await this.jobProvider.createJob();
+      await this.jobProvider.createJob();
       return [false, newJob];
     } catch (error) {
       console.error("Error creating new jobs: ", error);
