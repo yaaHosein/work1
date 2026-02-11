@@ -26,7 +26,7 @@ const Navbar = () => {
                 <NavLink to="/jobs" className={linkClass}>
                   المواد
                 </NavLink>
-                <NavLink to="/add-job" className={linkClass}>
+                <NavLink to="/addJob" className={linkClass}>
                   إضافة{" "}
                 </NavLink>
               </div>
