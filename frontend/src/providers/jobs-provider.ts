@@ -24,8 +24,6 @@ export class JobsProvider {
   }
 
   async deleteJob(jobId: string): Promise<void> {
-   
-    
     const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}/${jobId}`, {
       method: "DELETE",
     });
@@ -36,7 +34,7 @@ export class JobsProvider {
   }
 
   async createJob(addJob):  Promise<ApiJob[]> {
-    const response = await fetch(`api${JOB_ENDPOINT}${addJob}`,{
+    const response = await fetch (`${this.endpoint}/${addJob}`,{
       method: "POST",
     });
 // was my status code between 200 and 209?
