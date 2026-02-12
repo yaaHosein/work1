@@ -33,15 +33,14 @@ export class JobsProvider {
     }
   }
 
-  async createJob(addJob):  Promise<ApiJob[]> {
-    const response = await fetch (`${this.endpoint}/${addJob}`,{
+  async createJob(addJob:any): Promise<void> {
+    const response = await fetch (`${this.endpoint}${JOB_ENDPOINT}`,{
       method: "POST",
+          body: JSON.stringify(addJob)
     });
 // was my status code between 200 and 209?
     if (!response.ok) {
       throw new Error(`Error creating job details:${response.statusText}`);
     }
-     const data = await response.json();
-    return data;
   }
 }
