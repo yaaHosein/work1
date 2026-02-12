@@ -7,8 +7,6 @@ export class JobsProvider {
 
   async getJobs(): Promise<ApiJob[]> {
     const response: Response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`);
-  
-    
     const data: any = await response.json();
     return data;
   }
@@ -27,18 +25,18 @@ export class JobsProvider {
     const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}/${jobId}`, {
       method: "DELETE",
     });
-// was my status code between 200 and 209?
+    // was my status code between 200 and 209?
     if (!response.ok) {
       throw new Error(`Error deleting job details:${response.statusText}`);
     }
   }
 
-  async createJob(newJob:any): Promise<void> {
-    const response = await fetch (`${this.endpoint}${JOB_ENDPOINT}`,{
+  async createJob(newJob: any): Promise<any> {
+    const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`, {
       method: "POST",
-          body: JSON.stringify(newJob)
+      body: JSON.stringify(newJob),
     });
-// was my status code between 200 and 209?
+    // was my status code between 200 and 209?
     if (!response.ok) {
       throw new Error(`Error creating job details:${response.statusText}`);
     }
