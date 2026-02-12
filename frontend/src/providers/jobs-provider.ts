@@ -35,6 +35,9 @@ export class JobsProvider {
     const response = await fetch(`${this.endpoint}${JOB_ENDPOINT}`, {
       method: "POST",
       body: JSON.stringify(newJob),
+         headers: {
+        'Content-Type': 'application/json',
+      },
     });
     // was my status code between 200 and 209?
     if (!response.ok) {
