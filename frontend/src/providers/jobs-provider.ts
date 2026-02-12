@@ -33,10 +33,10 @@ export class JobsProvider {
     }
   }
 
-  async createJob(addJob:any): Promise<void> {
+  async createJob(newJob:any): Promise<void> {
     const response = await fetch (`${this.endpoint}${JOB_ENDPOINT}`,{
       method: "POST",
-          body: JSON.stringify(addJob)
+          body: JSON.stringify(newJob)
     });
 // was my status code between 200 and 209?
     if (!response.ok) {
