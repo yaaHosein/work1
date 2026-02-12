@@ -48,6 +48,9 @@ export class JobsProvider {
   async editJob(job:any):  Promise<void> {
     const response = await fetch (`${this.endpoint}${JOB_ENDPOINT}/${job.id}`,{
       method: "PUT",
+           headers: {
+        'Content-Type': 'application/json',
+      },
           body: JSON.stringify(job)
     });
 // was my status code between 200 and 209?
