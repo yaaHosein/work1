@@ -29,7 +29,12 @@ const App = () => {
   };
 
   // edit job
-  const updateJob = () => {};
+  const editJob = async (job) => {
+    const jobsService = container.JobsService;
+    const res = await jobsService.editJob(job);
+    console.log(res);
+
+  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -38,7 +43,7 @@ const App = () => {
         <Route path="/jobs" element={<JobsPage />} />
         <Route
           path="/edit-job/:id"
-          element={<EditJobPage updateJobSubmit={updateJob} />}
+          element={<EditJobPage updateJobSubmit={editJob} />}
           loader={jobLoader}
         />
         <Route

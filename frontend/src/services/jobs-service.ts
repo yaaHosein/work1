@@ -42,4 +42,14 @@ export class JobsService {
       return [true, []];
     }
 }
+
+  async editJob(job:object): Promise<[boolean, Job[]]>  {
+ try {
+      const editedJob = await this.jobProvider.editJob(job);
+      return [false, editedJob];
+    } catch (error) {
+      console.error("Error editing new jobs: ", error);
+      return [true, []];
+    }
+}
 }
