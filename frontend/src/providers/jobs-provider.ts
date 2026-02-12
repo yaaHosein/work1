@@ -48,6 +48,7 @@ export class JobsProvider {
   async editJob(job):  Promise<ApiJob[]> {
     const response = await fetch (`${this.endpoint}${JOB_ENDPOINT}/${job.id}`,{
       method: "PUT",
+          body: JSON.stringify(job.id)
     });
 // was my status code between 200 and 209?
     if (!response.ok) {
