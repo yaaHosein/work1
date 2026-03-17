@@ -71,7 +71,6 @@ export class JobController {
 
   getJobById(request: Request, response: Response) {
     const jobId = request.params.id;
-
     const job = jobs.find((j) => j.id === jobId);
     job
       ? response.json(job)
@@ -82,7 +81,6 @@ export class JobController {
     const newJob: Job = request.body;
     newJob.id = v7();
     console.log("creating new job with ID", newJob);
-
     jobs.push(newJob);
     response.status(201).json(newJob);
   }

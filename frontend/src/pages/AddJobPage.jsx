@@ -55,7 +55,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                 id="type"
                 name="type"
                 className="border rounded w-full py-2 px-3"
-                required
+                // required
                 value={type}
                 onChange={(e) => setType(e.target.value)}
               >
@@ -76,7 +76,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                 name="title"
                 className="border rounded w-full py-2 px-3 mb-2"
                 placeholder="eg. Beautiful Apartment In Miami"
-                required
+                // required
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -110,7 +110,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                 id="salary"
                 name="salary"
                 className="border rounded w-full py-2 px-3"
-                required
+                // required
                 value={salary}
                 onChange={(e) => setSalary(e.target.value)}
               >
@@ -138,7 +138,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                 name="location"
                 className="border rounded w-full py-2 px-3 mb-2"
                 placeholder="Company Location"
-                required
+                // required
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
               />
@@ -195,7 +195,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                 name="contact_email"
                 className="border rounded w-full py-2 px-3"
                 placeholder="Email address for applicants"
-                required
+                // required
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
               />
