@@ -32,4 +32,24 @@ export class JobsService {
       return true;
     }
   }
+
+  async createJob(addJob:object): Promise<[boolean, Job[]]>  {
+ try {
+      const newJob = await this.jobProvider.createJob(addJob);
+      return [false, newJob];
+    } catch (error) {
+      console.error("Error creating new jobs: ", error);
+      return [true, []];
+    }
+}
+
+  async editJob(job:object): Promise<[boolean, Job[]]>  {
+ try {
+      const editedJob = await this.jobProvider.editJob(job);
+      return [false, editedJob];
+    } catch (error) {
+      console.error("Error editing new jobs: ", error);
+      return [true, []];
+    }
+}
 }

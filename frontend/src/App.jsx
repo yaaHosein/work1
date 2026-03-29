@@ -15,15 +15,10 @@ import { container } from "./container";
 
 const App = () => {
   //add new job
-  const addJob = async (newJob) => {
-    const res = await fetch("${API_URL}/jobs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newJob),
-    });
-    return;
+  const createJob = async (newJob) => {
+    const jobsService = container.JobsService;
+    const res = await jobsService.createJob(newJob);
+    console.log(res);
   };
 
   //delete job:
@@ -34,7 +29,12 @@ const App = () => {
   };
 
   // edit job
-  const updateJob = () => {};
+  const editJob = async (job) => {
+    const jobsService = container.JobsService;
+    const res = await jobsService.editJob(job);
+    console.log(res);
+
+  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/jobs" element={<JobsPage />} />
         <Route
           path="/edit-job/:id"
-          element={<EditJobPage updateJobSubmit={updateJob} />}
+          element={<EditJobPage updateJobSubmit={editJob} />}
           loader={jobLoader}
         />
         <Route
@@ -51,7 +51,7 @@ const App = () => {
           element={<JobPage deleteJob={deleteJob} />}
           loader={jobLoader}
         />
-        <Route path="/add-job" element={<AddJobPage addJobSubmit={addJob} />} />
+        <Route path="/addJob" element={<AddJobPage addJobSubmit={createJob} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
